@@ -72,6 +72,9 @@ try {
                     continue;
                 }
                 $info = pathinfo($complete_name);
+                if(!array_key_exists('extension', $info)){
+                    continue;
+                }
                 $file_extension = strtolower($info['extension']);
                 if (! in_array($file_extension, $extensiones)) {
                     continue;
