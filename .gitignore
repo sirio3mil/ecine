@@ -5,6 +5,7 @@ dist/
 .tmp
 .sass-cache
 bower_components/
+photos/
 
 # Laravel 4 specific
 bootstrap/compiled.php
