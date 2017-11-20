@@ -1,0 +1,161 @@
+.pointer{
+cursor:pointer
+}
+table.dataTable thead th {
+    position: relative;
+    background-image: none !important;
+}
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    display: block;
+    font-family: FontAwesome;
+}
+table.dataTable thead th.sorting:after {
+    content: "\f0dc";
+    color: #ddd;
+    font-size: 0.8em;
+    padding-top: 0.12em;
+}
+table.dataTable thead th.sorting_asc:after {
+    content: "\f0de";
+}
+table.dataTable thead th.sorting_desc:after {
+    content: "\f0dd";
+}
+.ui-progressbar{
+	position: relative
+}
+.progress-label{
+	position: absolute;
+	left: 50%;
+	top: 4px;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #fff
+}
+
+.margin-0{ margin: 0 !important;}
+.padding-right-0{ padding-right: 0 !important;}
+.margin-right-5{ margin-right: 5px!important;}
+.margin-right-10{ margin-right: 10px!important;}
+.margin-right-15{ margin-right: 15px!important;}
+.margin-right-20{ margin-right: 20px!important;}
+.padding-left-0{ padding-left: 0 !important;}
+.margin-left-0{ margin-left: 0!important;}
+.margin-left-5{ margin-left: 5px!important;}
+.margin-left-10{ margin-left: 10px!important;}
+.margin-left-15{ margin-left: 15px!important;}
+.margin-left-20{ margin-left: 20px !important;}
+.margin-top-0{ margin-top: 0 !important;}
+.margin-top-5{ margin-top: 5px!important;}
+.margin-top-10{ margin-top: 10px!important;}
+.margin-top-15{ margin-top: 15px!important;}
+.margin-top-20{ margin-top: 20px !important;}
+.margin-top-30{ margin-top: 30px !important;}
+.margin-bottom-10{ margin-bottom: 10px!important;}
+.margin-bottom-15{ margin-bottom: 15px!important;}
+.margin-bottom-30{ margin-bottom: 30px!important;}
+.margin-bottom-0{ margin-bottom: 0px!important;}
+.padding-bottom-10{ padding-bottom: 10px !important;}
+.padding-bottom-15{ padding-bottom: 15px !important;}
+.padding-bottom-20{ padding-bottom: 20px !important;}
+.padding-top-10{ padding-top: 10px !important;}
+.padding-top-15{ padding-top: 15px !important;}
+.padding-0{padding: 0px !important;}
+.padding-5{padding: 5px !important;}
+.padding-20{padding: 20px !important;}
+.vertical-align-bottom{ vertical-align: bottom;}
+.display-inline-block{ display: inline-block;}
+.display-inline-table{ display: inline-table;}
+.display-block{ display: block;}
+.display-none{ display: none;}
+.width-100{ width: 100%;}
+.horizontal-align-center{margin: 0 auto !important}
+
+.table td {vertical-align: middle !important}
+
+.SumoSelect{
+	width: 100%
+}
+#archivos-descargados{
+	display: none
+}
+.overflow-hidden{ overflow: hidden !important;}
+.overflow-visible{ overflow: visible !important;}
+div.counter {
+	display: none;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-top: 7px;
+	min-width: 20px;
+	padding: 5px;
+	font-size: 15px;
+	line-height: 0px;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+}
+div.counter:before,
+div.counter ::before {
+	content: "";
+	width: 0;
+	height: 0;
+	top: 50%;
+	margin-top: -5px;
+	display: block;
+	border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+	border-width: 5px 5px 5px 0px;
+	left: -10px;
+	border-style: solid;
+	position: relative;
+}
+div.rating-container:hover div.counter {
+	display: block;
+}
+.clearfix{clear: both}
+.listados-peliculas-usuario .img-responsive{margin:0 auto}
+.square-50{
+	width: 50px; 
+	height: 50px; 
+}
+.square-40{
+	width: 40px; 
+	height: 40px; 
+}
+.square-30{
+	width: 30px; 
+	height: 30px; 
+}
+.fitimage{
+	background-size: cover; 
+	background-repeat: no-repeat; 
+	border-radius: 50%
+}
+.jq-ry-container{
+	padding: 0 !important
+}
+.ui-accordion-header{
+	background-color: #fff;
+    border: 1px solid #ddd;
+}
+.ui-accordion-content{
+	background-color: #fff;
+    border: 1px solid #ddd;
+}
+.ui-dialog{
+	background-color: #fff;
+    border: 1px solid #ddd;
+	border-radius: 3px;
+}
+.ui-dialog-buttonpane{
+	border-top: 1px solid #ddd;
+}
+.ui-dialog-titlebar{
+	border-bottom: 1px solid #ddd;
+}
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
