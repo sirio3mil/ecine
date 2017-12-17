@@ -163,6 +163,7 @@ switch($_REQUEST['action']){
 					break;
 				case 2:
 					$query = "SELECT DISTINCT filmes.imdb
+		        			    ,filmes.fecha
 		        			FROM filmes
 		        			INNER JOIN filmes_fechas_estreno ON filmes_fechas_estreno.id_filme = filmes.id
 		        			WHERE filmes_fechas_estreno.estreno > DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 24 MONTH)
@@ -175,6 +176,8 @@ switch($_REQUEST['action']){
 					break;
 				case 3:
 					$query = "SELECT DISTINCT filmes.imdb
+				        	    ,filmes.fecha
+        						,filmes.total_votes
 				        	FROM filmes
 				        	INNER JOIN filmes_fechas_estreno ON filmes_fechas_estreno.id_filme = filmes.id
 				        	WHERE filmes_fechas_estreno.estreno BETWEEN DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 24 MONTH) AND CURRENT_TIMESTAMP
@@ -188,6 +191,7 @@ switch($_REQUEST['action']){
 					break;
 				case 4:
 					$query = "SELECT DISTINCT filmes.imdb
+				        	    ,filmes.total_votes
 				        	FROM filmes
 				        	INNER JOIN file ON file.pelicula = filmes.id
 				        	WHERE filmes.imdb IS NOT NULL
@@ -199,6 +203,7 @@ switch($_REQUEST['action']){
 					break;
 				case 5:
 					$query = "SELECT DISTINCT filmes.imdb
+		        			    ,filmes.fecha_alta
 		        			FROM filmes
 		        			WHERE filmes.imdb IS NOT NULL
 		        				AND filmes.serie IN (
