@@ -86,6 +86,9 @@ try {
                     $audios = $mediaInfoContainer->getAudios();
                     $subtitles = $mediaInfoContainer->getSubtitles();
                     $menus = $mediaInfoContainer->getMenus();
+                    if (!$general instanceof Mhor\MediaInfo\Type\General){
+                        throw new Exception('General info not defined');
+                    }
                 } catch (Exception $e) {
                     echo date("H:i:s"), " <strong>error</strong> captura ", $complete_name, "<br />";
                     if (trim($e->getMessage())) {
