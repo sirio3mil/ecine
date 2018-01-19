@@ -5,7 +5,7 @@ class Database extends mysqli
 
     public function __construct()
     {
-        parent::__construct("mysql", "root", "ms3CjP{R?1^A", "db_peliculas");
+        parent::__construct('35.185.40.249', 'root', '#LeNtilla1', 'db_peliculas');
         if ($this->connect_error)
             die($this->connect_error);
         parent::query("SET NAMES 'latin1'");
