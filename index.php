@@ -19,7 +19,7 @@ $open_page = (empty($open_page))?'series':$open_page;
 <link rel="stylesheet" type="text/css" href="bower_components/datatables.net-dt/css/jquery.dataTables.min.css" />
 <link rel="stylesheet" type="text/css" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="bower_components/sumoselect/sumoselect.css" />
-<link rel="stylesheet" type="text/css" href="bower_components/rateYo/src/jquery.rateyo.css" />
+<link rel="stylesheet" type="text/css" href="bower_components/rateyo/src/jquery.rateyo.css" />
 <link rel="stylesheet" type="text/css" href="css/custom.css" />
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -206,7 +206,7 @@ $open_page = (empty($open_page))?'series':$open_page;
 	<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 	<script src="bower_components/sumoselect/jquery.sumoselect.min.js"></script>
-	<script src="bower_components/rateYo/src/jquery.rateyo.js"></script>
+	<script src="bower_components/rateyo/src/jquery.rateyo.js"></script>
 	<script src="javascript/jquery.admin.filmes.js"></script>
 </body>
 </html>
