@@ -21,7 +21,7 @@
     "blockUI": "malsup/blockui",
     "requirejs": "^2.3.3",
     "datatables.net-dt": "^3.2.2",
-    "rateyo": "^2.3.3"
+    "rateyo": "^2.3.2"
   },
   "resolutions": {
     "jquery": "^3.2.1"
