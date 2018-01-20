@@ -20,7 +20,8 @@
     "sumoselect": "HemantNegi/jquery.sumoselect#^3.0.2",
     "blockUI": "malsup/blockui",
     "requirejs": "^2.3.3",
-    "datatables.net-dt": "^3.2.2"
+    "datatables.net-dt": "^3.2.2",
+    "rateyo": "^2.3.3"
   },
   "resolutions": {
     "jquery": "^3.2.1"
