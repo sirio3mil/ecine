@@ -30,12 +30,12 @@ while ($row = $result->fetch_object()) {
     $urlCover = "";
     for ($i = $row->temporadas; $i >= 1; $i --) {
         if (file_exists("photos/series/110/{$row->id}_{$i}.jpg")) {
-            $urlCover = "//ecine.nginx.local/photos/series/110/{$row->id}_{$i}.jpg";
+            $urlCover = "photos/series/110/{$row->id}_{$i}.jpg";
             break;
         }
     }
     if (empty($urlCover) && $row->cover) {
-        $urlCover = "//ecine.nginx.local/photos/filmes/110/{$row->id}.jpg";
+        $urlCover = "photos/filmes/110/{$row->id}.jpg";
     }
     printf('<div class="row"><div class="col-md-2"><img class="img-responsive img-circle" src="%s" /></div><div class="col-md-10"><p><a href="index.php?page=filmes&id=%u">%s</a> (%s %u minutos)</p>', $urlCover, $row->id, $row->predeterminado, $row->pais_predeterminado, $row->duracion);
     $query = "SELECT filmes.id

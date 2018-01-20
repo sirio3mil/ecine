@@ -54,7 +54,7 @@ try{
 	curl_close($ch);
 	$http_code = trim($header['http_code']) * 1;
 	if($http_code == 404){
-		throw new Exception("el <a href='//ecine.nginx.local/index.php?page=actores&id={$actor->id}' target='_blank'>actor</a> no existe con este <a href='$urlimdb' target='_blank'>imdb</a>");
+		throw new Exception("el <a href='index.php?page=actores&id={$actor->id}' target='_blank'>actor</a> no existe con este <a href='$urlimdb' target='_blank'>imdb</a>");
 	}
 	$campos = array(
 			"sexo"			=> "",

@@ -195,7 +195,7 @@ while ($row = $result->fetch_object()) {
         $original_url_encoded = urlencode($row->original);
         $urlCover = "";
         if ($row->cover) {
-            $urlCover = "//ecine.nginx.local/photos/filmes/110/{$row->id}.jpg";
+            $urlCover = "photos/filmes/110/{$row->id}.jpg";
         }
         printf('<div class="row datos-pelicula-listado"><div class="col-md-2"><img class="img-responsive img-circle" src="%s" /></div><div class="col-md-10"><div class="row"><div class="col-md-10"><p><a href="index.php?page=filmes&id=%u">%s</a></p>', $urlCover, $row->id, ($row->predeterminado != $row->original) ? "$row->predeterminado ($row->original - $row->anno)" : "$row->predeterminado ($row->anno)");
         if ($row->votes) {
