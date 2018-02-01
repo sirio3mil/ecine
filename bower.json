@@ -10,7 +10,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "latest",
+    "jquery": "3.3.1",
     "jquery-ui": "latest",
     "bootstrap": "latest",
     "datatables.net": "latest",
@@ -25,6 +25,6 @@
     "cropper": "latest"
   },
   "resolutions": {
-    "jquery": "latest"
+    "jquery": "3.3.1"
   }
 }
