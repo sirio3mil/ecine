@@ -10,21 +10,21 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.2.1",
-    "jquery-ui": "^1.12.1",
-    "bootstrap": "^3.3.7",
-    "datatables.net": "^1.10.15",
-    "datatables.net-bs": "^2.1.1",
-    "components-font-awesome": "^4.7.0",
-    "moment": "^2.18.1",
-    "sumoselect": "HemantNegi/jquery.sumoselect#^3.0.2",
+    "jquery": "latest",
+    "jquery-ui": "latest",
+    "bootstrap": "latest",
+    "datatables.net": "latest",
+    "datatables.net-bs": "latest",
+    "components-font-awesome": "latest",
+    "moment": "latest",
+    "sumoselect": "HemantNegi/jquery.sumoselect",
     "blockUI": "malsup/blockui",
-    "requirejs": "^2.3.3",
-    "datatables.net-dt": "^3.2.2",
-    "rateyo": "^2.3.2",
-    "cropper": "^3.1.4"
+    "requirejs": "latest",
+    "datatables.net-dt": "latest",
+    "rateyo": "latest",
+    "cropper": "latest"
   },
   "resolutions": {
-    "jquery": "^3.2.1"
+    "jquery": "latest"
   }
 }
