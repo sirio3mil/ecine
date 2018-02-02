@@ -25,7 +25,7 @@ $open_page = (empty($open_page))?'series':$open_page;
 </head>
 <body>
 	<div class="container-fluid margin-top-10">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
 			<form method="post" role="search" class="form-inline my-2 my-lg-0" action="redirect_busqueda.php">
 				<input placeholder="buscar" class="form-control mr-sm-2" name="condicion" type="text" value="<?=(!empty($_GET['cadena']))?urldecode($_GET['cadena']):""?>" />
 				<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
