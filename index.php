@@ -30,29 +30,29 @@ $open_page = (empty($open_page))?'series':$open_page;
 				<input placeholder="buscar" class="form-control mr-sm-2" name="condicion" type="text" value="<?=(!empty($_GET['cadena']))?urldecode($_GET['cadena']):""?>" />
 				<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
 			</form>
-            <form method="post" role="search" class="form-inline my-2 my-lg-0">
+            <form method="post" role="search" class="form-inline my-2 my-lg-0 ml-2">
 				<input placeholder="id" class="form-control mr-sm-2" type="text" id="id-avanzar-pelicula" />
-				<button type="button" class="btn btn-default my-2 my-sm-0" id="button-avanzar-pelicula">Ir</button>
+				<button type="button" class="btn btn-outline-info my-2 my-sm-0" id="button-avanzar-pelicula">Ir</button>
             </form>
-			<form method="post" role="search" class="form-inline my-2 my-lg-0" action="index.php?page=extraer">
+			<form method="post" role="search" class="form-inline my-2 my-lg-0 ml-2" action="index.php?page=extraer">
 				<input name="pagina" placeholder="url a examinar" id="pagina_default" type="text" size="60" class="form-control mr-sm-2" />
-				<button type="submit" class="btn btn-default my-2 my-sm-0">Importar</button>
+				<button type="submit" class="btn btn-outline-danger my-2 my-sm-0">Importar</button>
 			</form>
-            <form class="form-inline">
-					<button type="button" id="button-avanzar-anterior" class="btn btn-sm btn-outline-secondary">
-						<i class="fa fa-step-backward" style="padding: 3px 0" aria-hidden="true"></i>
-					</button>
-					<button type="button" id="button-avanzar-siguiente" class="btn btn-sm btn-outline-secondary">
-						<i class="fa fa-step-forward" style="padding: 3px 0" aria-hidden="true"></i>
-					</button>
-					<button type="button" id="button-avanzar-ultimo" class="btn btn-sm btn-outline-secondary">
-						<i class="fa fa-fast-forward" style="padding: 3px 0" aria-hidden="true"></i>
-					</button>
-					<button type="button" id="button-avanzar-nuevo" class="btn btn-sm btn-outline-secondary">
-						<i class="fa fa-asterisk" style="padding: 3px 0" aria-hidden="true"></i>
-					</button>
-				<div class="dropdown">
-					<button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+            <form class="form-inline my-2 my-lg-0 ml-2">
+				<button type="button" id="button-avanzar-anterior" class="btn btn-outline-secondary mr-2">
+					<i class="fa fa-step-backward" style="padding: 3px 0" aria-hidden="true"></i>
+				</button>
+				<button type="button" id="button-avanzar-siguiente" class="btn btn-outline-secondary mr-2">
+					<i class="fa fa-step-forward" style="padding: 3px 0" aria-hidden="true"></i>
+				</button>
+				<button type="button" id="button-avanzar-ultimo" class="btn btn-outline-secondary mr-2">
+					<i class="fa fa-fast-forward" style="padding: 3px 0" aria-hidden="true"></i>
+				</button>
+				<button type="button" id="button-avanzar-nuevo" class="btn btn-outline-secondary mr-2">
+					<i class="fa fa-asterisk" style="padding: 3px 0" aria-hidden="true"></i>
+				</button>
+				<div class="dropdown mr-2">
+					<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
 						Insertar información <span class="caret"></span>
 					</button>
                     <div class="dropdown-menu">
@@ -69,7 +69,7 @@ $open_page = (empty($open_page))?'series':$open_page;
 					</div>
 				</div>
 				<div class="dropdown">
-					<button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+					<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
 						Listados <span class="caret"></span>
 					</button>
                     <div class="dropdown-menu">
