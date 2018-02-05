@@ -22,8 +22,7 @@
     "requirejs": "latest",
     "datatables.net-dt": "latest",
     "rateyo": "latest",
-    "cropper": "latest",
-    "popper.js": "latest"
+    "cropper": "latest"
   },
   "resolutions": {
     "jquery": "3.3.1"
