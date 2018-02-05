@@ -37,7 +37,7 @@ while ($row = $result->fetch_object()) {
     if (empty($urlCover) && $row->cover) {
         $urlCover = "photos/filmes/110/{$row->id}.jpg";
     }
-    printf('<div class="row"><div class="col-md-2"><img class="img-responsive img-circle" src="%s" /></div><div class="col-md-10"><p><a href="index.php?page=filmes&id=%u">%s</a> (%s %u minutos)</p>', $urlCover, $row->id, $row->predeterminado, $row->pais_predeterminado, $row->duracion);
+    printf('<div class="row"><div class="col-md-2"><img class="rounded-circle mx-auto d-block" src="%s" /></div><div class="col-md-10"><p><a href="index.php?page=filmes&id=%u">%s</a> (%s %u minutos)</p>', $urlCover, $row->id, $row->predeterminado, $row->pais_predeterminado, $row->duracion);
     $query = "SELECT filmes.id
 				,predeterminado
 				,capitulo

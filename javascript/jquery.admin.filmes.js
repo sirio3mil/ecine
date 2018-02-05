@@ -1113,12 +1113,6 @@ $(function(){
 			$(this).closest('.ui-accordion-content').addClass('overflow-visible');
 		}
 	});
-	$('.listados-peliculas-usuario').find('.img-responsive').each(function(){
-		var imagen = $(this);
-		var altura_imagen = imagen.height();
-		var altura_contenedor = imagen.closest("div.row").height();
-		imagen.css('margin-top', Math.ceil((altura_contenedor - altura_imagen) / 2));
-	});
 	$('.rating-pelicula-pendiente').each(function(){
 		var container = $(this);
 		var rating = container.data('value');

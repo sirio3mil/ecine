@@ -197,7 +197,7 @@ while ($row = $result->fetch_object()) {
         if ($row->cover) {
             $urlCover = "photos/filmes/110/{$row->id}.jpg";
         }
-        printf('<div class="row datos-pelicula-listado"><div class="col-md-2"><img class="img-responsive img-circle" src="%s" /></div><div class="col-md-10"><div class="row"><div class="col-md-10"><p><a href="index.php?page=filmes&id=%u">%s</a></p>', $urlCover, $row->id, ($row->predeterminado != $row->original) ? "$row->predeterminado ($row->original - $row->anno)" : "$row->predeterminado ($row->anno)");
+        printf('<div class="row datos-pelicula-listado"><div class="col-md-2"><img class="rounded-circle mx-auto d-block" src="%s" /></div><div class="col-md-10"><div class="row"><div class="col-md-10"><p><a href="index.php?page=filmes&id=%u">%s</a></p>', $urlCover, $row->id, ($row->predeterminado != $row->original) ? "$row->predeterminado ($row->original - $row->anno)" : "$row->predeterminado ($row->anno)");
         if ($row->votes) {
             $rating = round($row->value / $row->votes, 1);
         } else {
