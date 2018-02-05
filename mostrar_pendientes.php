@@ -245,7 +245,7 @@ while ($row = $result->fetch_object()) {
         if ($resultado->num_rows) {
             echo '<div class="clearfix margin-bottom-10">';
             while ($actor = $resultado->fetch_object()) {
-                printf('<div class="pull-left margin-right-10"><a href="index.php?page=actores&id=%u" title="%s" class="display-block square-50 fitimage" style="background-image: url(photos/actores/original/%u.jpg)"></a></div>', $actor->id, $actor->nombre, $actor->id);
+                printf('<div class="pull-left margin-right-10"><a href="index.php?page=actores&id=%u" title="%s" class="rounded-circle mx-auto d-block" style="background-image: url(photos/actores/original/%u.jpg)"></a></div>', $actor->id, $actor->nombre, $actor->id);
             }
             echo '</div>';
         }
