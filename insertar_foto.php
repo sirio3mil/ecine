@@ -90,54 +90,24 @@ try{
     if(!$image){
         throw new Exception("Error creando imagen {$mime} {$temp}");
     }
-    $width = imagesx($image);
-    $height = imagesy($image);
 	switch($_REQUEST["tabla"]){
 		case 'actores':
 			$path .= sprintf("%sphotos%sactores%s", DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR);
+			$filepath = sprintf("%s280%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
+			PhotoThumbnail::create($filepath, $image, 280);
+			$filepath = sprintf("%s40%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
+			PhotoThumbnail::create($filepath, $image, 40);
 			$filepath = sprintf("%soriginal%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
-            if(file_exists($filepath)){
-                if(!unlink($filepath)){
-                    throw new Exception("Error al borrar la imagen original $filepath");
-                }
-            }
-            imagejpeg($image, $filepath, 100);
-            if(!file_exists($filepath)){
-                throw new Exception("Error al crear {$filepath} {$desired_width}x{$desired_height}");
-            }
+			PhotoThumbnail::store($filepath, $image);
 			$query = "update actores set fecha=NOW(),cover='1' where id='$id'";
 			$mysqli->query($query);
 			break;
 		case 'filmes':
 			$path .= sprintf("%sphotos%sfilmes%s", DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR);
-			/* find the "desired height" of this thumbnail, relative to the desired width */
-			$desired_width = 110;
-			$desired_height = ceil($height * $desired_width / $width);
-			/* create a new, "virtual" image */
-			$virtual_image = imagecreatetruecolor($desired_width, $desired_height);
-			/* copy source image at a resized size */
-			imagecopyresampled($virtual_image, $image, 0, 0, 0, 0, $desired_width, $desired_height, $width, $height);
 			$filepath = sprintf("%s110%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
-			/* create the physical thumbnail image to its destination */
-			if(file_exists($filepath)){
-				if(!unlink($filepath)){
-					throw new Exception("Error al borrar la imagen original $filepath");
-				}
-			}
-			imagejpeg($virtual_image, $filepath, 100);
-			if(!file_exists($filepath)){
-				throw new Exception("Error al crear {$filepath} {$desired_width}x{$desired_height}");
-			}
+			PhotoThumbnail::create($filepath, $image, 110);
 			$filepath = sprintf("%soriginal%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
-			if(file_exists($filepath)){
-				if(!unlink($filepath)){
-					throw new Exception("Error al borrar la imagen original $filepath");
-				}
-			}
-            imagejpeg($image, $filepath, 100);
-            if(!file_exists($filepath)){
-                throw new Exception("Error al crear {$filepath} {$desired_width}x{$desired_height}");
-            }
+			PhotoThumbnail::store($filepath, $image);
 			$query = "update filmes set fecha=NOW(),cover='1',bigcover='1' where id='$id'";
 			$mysqli->query($query);
 			break;
@@ -147,33 +117,10 @@ try{
 			if(!$temporada){
 				throw new Exception("Temporada incorrecta");
 			}
-			/* find the "desired height" of this thumbnail, relative to the desired width */
-			$desired_width = 110;
-			$desired_height = ceil($height * $desired_width / $width);
-			/* create a new, "virtual" image */
-			$virtual_image = imagecreatetruecolor($desired_width, $desired_height);
-			/* copy source image at a resized size */
-			imagecopyresampled($virtual_image, $image, 0, 0, 0, 0, $desired_width, $desired_height, $width, $height);
 			$filepath = sprintf("%s110%s%u_%u.jpg", $path, DIRECTORY_SEPARATOR, $id, $temporada);
-			if(file_exists($filepath)){
-				if(!unlink($filepath)){
-					throw new Exception("Error al borrar la imagen original $filepath");
-				}
-			}
-			imagejpeg($virtual_image, $filepath, 100);
-			if(!file_exists($filepath)){
-				throw new Exception("Error al crear la imagen de temporada {$filepath} {$desired_width}x{$desired_height}");
-			}
+			PhotoThumbnail::create($filepath, $image, 110);
 			$filepath = sprintf("%soriginal%s%u_%u.jpg", $path, DIRECTORY_SEPARATOR, $id, $temporada);
-			if(file_exists($filepath)){
-				if(!unlink($filepath)){
-					throw new Exception("Error al borrar la imagen original $filepath");
-				}
-			}
-            imagejpeg($image, $filepath, 100);
-            if(!file_exists($filepath)){
-                throw new Exception("Error al crear {$filepath} {$desired_width}x{$desired_height}");
-            }
+			PhotoThumbnail::store($filepath, $image);
 			break;
 		default:
 			throw new Exception("No se reciben las opciones correctas");
