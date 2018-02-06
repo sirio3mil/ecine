@@ -1,6 +1,6 @@
 <?php  /* 02/01/2007 */
 include_once '../acceso_restringido.php';
-include_once '../clases/database.php';
+include_once '../clases/Database.php';
 $data = [];
 try{
 	if(!$_POST){

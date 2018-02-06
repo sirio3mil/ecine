@@ -1,7 +1,7 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/filmesdb.php';
-$mysqli = new filmesDB();
+include_once 'clases/FilmesDB.php';
+$mysqli = new FilmesDB();
 if(!empty($_GET['id']) && is_numeric($_GET['id']) && ($_GET['tabla'] == 'actores' || $_GET['tabla'] == 'filmes')){
 	$query = "delete from %s where id = '%u'";
 	$query = sprintf($query,

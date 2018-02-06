@@ -1,7 +1,7 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../clases/filmesdb.php';
-include_once '../clases/reloj.php';
+include_once '../clases/FilmesDB.php';
+include_once '../clases/Reloj.php';
 include_once '../includes/funciones.inc';
 include_once '../includes/filmes.inc';
 $retorno = [];
@@ -9,7 +9,7 @@ try{
     if(!isset($_POST['imdb']) || !filter_var($_POST['imdb'], FILTER_VALIDATE_INT)){
         throw new Exception("No hay actor definido");
     }
-    $mysqli = new filmesDB();
+    $mysqli = new FilmesDB();
 	$query = "SELECT id,
 			nombre,
 			sexo,

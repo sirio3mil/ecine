@@ -1,10 +1,10 @@
 <?php
-include_once 'clases/imdb.php';
+include_once 'clases/ImDB.php';
 include_once 'includes/imdb.inc';
 set_time_limit(0);
 if(!empty($_POST['url']) && is_array($_POST['url'])){
 	foreach ($_POST['url'] as $url){
-		$imdb = new IMDB($url);
+		$imdb = new ImDB($url);
 		$id_filme = 0;
 		$tabla_filmes = array();
 		$tabla_filmes['original'] = $imdb->dameTitulo();
@@ -41,7 +41,7 @@ elseif(!empty($_POST['pagina']) || !empty($_GET['imdb'])){
 		if(!empty($detalles[1])){
 			foreach ($detalles[1] as $detalle){
 				$detalle = "<div class=\"filmo{$detalle}</div>";
-				$numero = devuelveIMDB($detalle);
+				$numero = devuelveImDB($detalle);
 				if(!empty($numero[0])){
 					$rutas[] = $numero[0];
 					$datos[] = strip_tags(trim(str_replace("<", " <", $detalle)));
@@ -54,7 +54,7 @@ elseif(!empty($_POST['pagina']) || !empty($_GET['imdb'])){
 			if(!empty($detalles[1])){
 				foreach ($detalles[1] as $detalle){
 					$detalle = "<div class=\"list_item{$detalle}</div>";
-					$numero = devuelveIMDB($detalle);
+					$numero = devuelveImDB($detalle);
 					if(!empty($numero[0])){
 						$rutas[] = $numero[0];
 						$datos[] = trim(str_replace("                      Watch now                             Watch now                     Buy it at Amazon.co.uk", "", strip_tags(trim(str_replace("<", " <", $detalle)))));
@@ -62,7 +62,7 @@ elseif(!empty($_POST['pagina']) || !empty($_GET['imdb'])){
 				}
 			}
 			else{
-				$rutas = array_unique(devuelveIMDB($pagina));
+				$rutas = array_unique(devuelveImDB($pagina));
 			}
 		}
 		echo "Encontradas ".count($rutas)." coincidencias<br/>";

@@ -41,7 +41,7 @@ function insertarTituloAdicionales($id_filme){
 				}
 				foreach ($paises as $pais){
 					$pais = trim(strip_tags($pais));
-					$pais = (stripos($pais, '/') === false)?IMDB::damePaisReal($pais):null;
+					$pais = (stripos($pais, '/') === false)?ImDB::damePaisReal($pais):null;
 					$nota = (!empty($nota))?trim($imdb->validaCampo(strip_tags($nota))):null;
 					$id_pais = null;
 					if(!empty($pais)){
@@ -95,7 +95,7 @@ function insertarEstrenos($id_filme){
 		for ($i = 0; $i < $elementos; $i++){
 			$dia_mes = trim($datos[3][$i]);
 			$anno = trim($datos[5][$i]);
-			$pais = IMDB::damePaisReal(trim($imdb->validaCampo(strip_tags($datos[2][$i]))));
+			$pais = ImDB::damePaisReal(trim($imdb->validaCampo(strip_tags($datos[2][$i]))));
 			if(!empty($pais) && !in_array($pais, $paises) && !empty($dia_mes) && !empty($anno)){
 				$paises[] = $pais;
 				$timestamp = strtotime("{$dia_mes} {$anno}");
@@ -209,7 +209,7 @@ function insertarPaises($id_filme){
 	    }
 	    $stmt->bind_param("ii", $id_filme, $id_pais);
 		foreach ($datos[2] as $nombre){
-			$nombre = IMDB::damePaisReal(trim($imdb->validaCampo(strip_tags($nombre))));
+			$nombre = ImDB::damePaisReal(trim($imdb->validaCampo(strip_tags($nombre))));
 			if(!empty($nombre)){
 				$id_pais = $mysqli->dameIDPais($nombre);
 				if(!$id_pais){
@@ -318,7 +318,7 @@ function insertarCertificaciones($id_filme){
 	    $stmt->bind_param("iis", $id_filme, $id_pais, $clasificado);
 		foreach ($datos[2] as $certificado){
 			$partes = explode(":",$certificado);
-			$pais = IMDB::damePaisReal(trim($imdb->validaCampo(strip_tags($partes[0]))));
+			$pais = ImDB::damePaisReal(trim($imdb->validaCampo(strip_tags($partes[0]))));
 			if(!empty($pais)){
 				$clasificado = trim($imdb->validaCampo(strip_tags($partes[1])));
 				$id_pais = $mysqli->dameIDPais($pais);
@@ -643,14 +643,14 @@ function activaSerie($id_actualizar){
 	}
 }
 
-function devuelveIMDB($contenido){
+function devuelveImDB($contenido){
 	$coincidencias = array();
 	preg_match_all("|/tt([0-9]{7})/|U", $contenido, $coincidencias);
 	return (!empty($coincidencias[1]))?$coincidencias[1]:array();
 }
 
-function devuelveNumeroIMDB($url){
-	$numeros = devuelveIMDB($url);
+function devuelveNumeroImDB($url){
+	$numeros = devuelveImDB($url);
 	if(!empty($numeros[0])){
 		return ($numeros[0]*1);
 	}

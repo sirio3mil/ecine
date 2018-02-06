@@ -1,6 +1,6 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/database.php';
+include_once 'clases/Database.php';
 $mysqli  = new Database();
 if(!empty($_POST['id']) && is_numeric($_POST['id'])){
 	$query = "update usuarios_filmes_agregados set imdb_ready = '%u' where id = '%u'";

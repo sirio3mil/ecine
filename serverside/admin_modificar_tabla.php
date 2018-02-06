@@ -1,6 +1,6 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../clases/database.php';
+include_once '../clases/Database.php';
 $retorno = "";
 if(!empty($_POST['id']) && !empty($_POST['table'])){
 	$mysqli  = new Database();

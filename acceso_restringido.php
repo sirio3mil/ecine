@@ -5,4 +5,6 @@ if(empty($_SESSION['id_usuario'])){
 	$_SESSION['usuario_admin'] = TRUE;
 	$_SESSION['id_pais'] = 1;
 }
-?>
+spl_autoload_register(function ($class_name) {
+	include 'clases' . DIRECTORY_SEPARATOR . $class_name . '.php';
+});

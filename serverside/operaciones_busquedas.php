@@ -1,7 +1,7 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once '../clases/database.php';
-include_once '../clases/reloj.php';
+include_once '../clases/Database.php';
+include_once '../clases/Reloj.php';
 $mysqli = new Database();
 $action = (!empty($_REQUEST['action']))?$_REQUEST['action']:null;
 switch($action){

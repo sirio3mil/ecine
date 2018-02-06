@@ -1,7 +1,7 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/filmesdb.php';
-$mysqli = new filmesDB();
+include_once 'clases/FilmesDB.php';
+$mysqli = new FilmesDB();
 if(!empty($_GET["table"])){
 	$open_table = $mysqli->real_escape_string(trim($_GET["table"]));
 	$hay_fechas = false;

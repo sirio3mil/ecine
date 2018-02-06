@@ -1,10 +1,10 @@
 <?php
-include_once 'clases/imdb.php';
+include_once 'clases/ImDB.php';
 include_once 'includes/imdb.inc';
 set_time_limit(0);
 $imdbnr = str_pad($_GET['imdb'], 7, "0", STR_PAD_LEFT);
 $pagina = "http://www.imdb.com/title/tt{$imdbnr}/";
-$imdb = new IMDB($pagina);
+$imdb = new ImDB($pagina);
 if($imdb->estado){
 	echo date("H:i:s"), " procesando ", $pagina, "<br />";
 	echo date("H:i:s"), " titulo original ", $imdb->dameTitulo(), "<br />";

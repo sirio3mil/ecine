@@ -1,17 +1,17 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/imdb.php';
+include_once 'clases/ImDB.php';
 include_once 'includes/imdb.inc';
 global $mysqli;
 try{
-	$numero = devuelveNumeroIMDB($_REQUEST['pagina']);
+	$numero = devuelveNumeroImDB($_REQUEST['pagina']);
 	if(empty($numero)){
 		throw new Exception("No se ha definido un numero correcto de IMDb");
 	}
 	$ruta_imdb = creaURL($numero);
 	$query = "select id from filmes where imdb = '$numero'";
 	$id_filme = $mysqli->fetch_value($query);
-	$imdb = new IMDB($ruta_imdb);
+	$imdb = new ImDB($ruta_imdb);
 	$tabla_filmes = [];
 	$tabla_filmes['original'] = $imdb->dameTitulo();
 	if(empty($tabla_filmes['original'])){
@@ -39,7 +39,7 @@ try{
 				$una_semana = strtotime("+7 day");
 				foreach($capitulos as $capitulo){
 					$url_episodio = creaURL($capitulo);
-					$imdb = new IMDB($url_episodio);
+					$imdb = new ImDB($url_episodio);
 					$tabla_filmes = array();
 					$fecha_estreno = $imdb->dameEstrenoAnterior($una_semana);
 					if($una_semana > $fecha_estreno){
@@ -82,7 +82,7 @@ try{
 					$una_semana = strtotime("+7 day");
 					foreach($capitulos as $capitulo){
 						$url_episodio = creaURL($capitulo);
-						$imdb = new IMDB($url_episodio);
+						$imdb = new ImDB($url_episodio);
 						$tabla_filmes = array();
 						$fecha_estreno = $imdb->dameEstrenoAnterior($una_semana);
 						if($una_semana > $fecha_estreno){

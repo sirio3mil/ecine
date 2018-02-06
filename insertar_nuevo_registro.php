@@ -1,10 +1,10 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/filmesdb.php';
+include_once 'clases/FilmesDB.php';
 include_once 'includes/funciones.inc';
 include_once 'includes/filmes.inc';
 if($_POST && $_GET){
-	$mysqli = new filmesDB();
+	$mysqli = new FilmesDB();
 	$soporte = "";
 	$estreno = "";
 	reset($_POST);

@@ -1,9 +1,9 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../clases/filmesdb.php';
+include_once '../clases/FilmesDB.php';
 include_once '../includes/funciones.inc';
 include_once '../includes/filmes.inc';
-$mysqli = new filmesDB();
+$mysqli = new FilmesDB();
 switch($_REQUEST['action']){
 	case 'EliminarImagen':
 		$data = [];

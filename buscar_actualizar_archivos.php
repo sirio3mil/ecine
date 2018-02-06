@@ -1,6 +1,6 @@
 <?php
 include_once 'includes/media.inc';
-include_once 'clases/reloj.php';
+include_once 'clases/Reloj.php';
 include_once 'vendor/autoload.php';
 global $mysqli;
 use Mhor\MediaInfo\MediaInfo;

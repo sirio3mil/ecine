@@ -272,7 +272,7 @@ if (! $filme['capitulo']) {
         }
     }
     if ($filme['imdb']) {
-        print('<a role="button" class="btn btn-default" title="actualizar desde IMDB" id="updateimdb">Actualizar</a>');
+        print('<a role="button" class="btn btn-default" title="actualizar desde ImDB" id="updateimdb">Actualizar</a>');
         if ($filme['serie']) {
             printf('<a role="button" class="btn btn-default" title="ver online" href="index.php?page=filmes&id=%u">Serie</a>', $filme['serie']);
             $siguiente = dameCapituloSiguiente($id_filme);
@@ -316,7 +316,7 @@ if (! $filme['capitulo']) {
     } else {
         $serie_url_encoded = $original_url_encoded;
     }
-    printf('<li><a id="enlace-imdb" title="ver la página de IMDB" href="%s" target="_blank">IMDb</a></li>', creaURL($filme['imdb']));
+    printf('<li><a id="enlace-imdb" title="ver la página de ImDB" href="%s" target="_blank">IMDb</a></li>', creaURL($filme['imdb']));
     printf('<li><a title="buscar en film affinity" href="http://www.filmaffinity.com/es/search.php?stext=%s&stype=all" target="busqueda_affinity">FilmAffinity</a></li>', $original_url_encoded);
     printf('<li><a title="buscar poster en Google" href="https://www.google.es/search?q=%s+%s&safe=off&hl=es&source=lnms&tbm=isch&sa=X" target="busqueda_google">Google</a></li>', $original_url_encoded, $filme["anno"]);
     printf('<li><a target="_blank" href="http://www.youtube.com/results?search_query=%s+trailer" title="buscar trailers en youtube">Youtube</a></li>', $predeterminado_url_encoded);

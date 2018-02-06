@@ -1,6 +1,6 @@
 <?php
-include_once 'clases/imdb.php';
-include_once 'clases/filmesdb.php';
+include_once 'clases/ImDB.php';
+include_once 'clases/FilmesDB.php';
 include_once 'includes/imdb.inc';
 set_time_limit(0);
 $mysqli  = new FilmesDB();
@@ -25,7 +25,7 @@ if($result->num_rows){
 					echo date("H:i")." procesando el filme $row->filme con imdb $imdb<br/>";
 					$num_imdb = str_pad($imdb, 7, "0", STR_PAD_LEFT);
 					$url_imdb = "http://www.imdb.com/title/tt$num_imdb/";
-					$imdb = new IMDB($url_imdb);
+					$imdb = new ImDB($url_imdb);
 					if(!empty($imdb->original)){
 						$actualizados++;
 						$tabla_filmes = array();

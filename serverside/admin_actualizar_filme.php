@@ -1,10 +1,10 @@
 <?php  /* 02/01/2007 */
 include_once '../acceso_restringido.php';
-include_once '../clases/filmesdb.php';
+include_once '../clases/FilmesDB.php';
 include_once '../includes/funciones.inc';
 include_once '../includes/filmes.inc';
 if(!empty($_POST)){
-	$mysqli = new filmesDB();
+	$mysqli = new FilmesDB();
 	$nuevo_valor = strip_tags(trim($_POST['valor']));
 	$valor_vacio = FALSE;
 	$etiquetas = array(

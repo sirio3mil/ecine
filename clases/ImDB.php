@@ -1,6 +1,6 @@
 <?php
 
-class IMDB{
+class ImDB{
 	protected $pagina;
 	protected $url;
 	protected $pagina_cast;
@@ -17,7 +17,7 @@ class IMDB{
 
 	public function __construct($url){
 		$this->url = $url;
-		$this->pagina = IMDB::clean($this->url);
+		$this->pagina = ImDB::clean($this->url);
 		if(!$this->pagina){
 			$this->estado = FALSE;
 			throw new Exception("Error recuperando la página $this->url");
@@ -41,12 +41,12 @@ class IMDB{
 		 * ******** RELEASE INFO **************
 		 */
 		if(strpos($this->pagina, "Also Known As:") !== FALSE || strpos($this->pagina, "Release Date:") !== FALSE){
-			$this->titulo_estreno = IMDB::clean($this->url . "releaseinfo");
+			$this->titulo_estreno = ImDB::clean($this->url . "releaseinfo");
 		}
 		/**
 		 * ******** FULL CREDITS **************
 		 */
-		$this->pagina_cast = IMDB::clean($this->url . "fullcredits");
+		$this->pagina_cast = ImDB::clean($this->url . "fullcredits");
 		$this->cast_director = '';
 		$this->cast_writer = '';
 		if(strpos($this->pagina_cast, "Directed by") !== false){
@@ -276,7 +276,7 @@ class IMDB{
 	public function dameLocalizacion(){
 		$coincidencias = array();
 		if(strpos($this->pagina, "Filming Locations:") !== FALSE){
-			$html = IMDB::clean($this->url . "locations");
+			$html = ImDB::clean($this->url . "locations");
 			if(!empty($html)){
 				preg_match_all('|/search/title\?locations=([^>]+)\"itemprop=\'url\'>([^>]+)</a>|U', $html, $coincidencias);
 				return $coincidencias;

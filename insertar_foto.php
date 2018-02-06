@@ -1,6 +1,6 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/filmesdb.php';
+include_once 'clases/FilmesDB.php';
 include_once 'clases/UploadFileSizeCheck.php';
 try{
 	$form_name = 'userfile';
@@ -66,7 +66,7 @@ try{
 	), true)){
 		throw new Exception("Invalid file format {$mime}");
 	}
-	$mysqli = new filmesDB();
+	$mysqli = new FilmesDB();
 	$path = dirname(__FILE__);
 	$id = filter_var($_REQUEST["id"], FILTER_VALIDATE_INT);
 	if(!$id){

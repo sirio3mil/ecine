@@ -1,8 +1,6 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/filmesdb.php';
-include_once 'clases/reloj.php';
-$mysqli = new filmesDB();
+$mysqli = new FilmesDB();
 if(isset($_GET["page"])){
 	$open_page = trim($_GET["page"]);
 }
@@ -93,7 +91,7 @@ $open_page = (empty($open_page))?'series':$open_page;
 		<div class="row">
 			<div class="col-xs-6 col-md-2">
 				<ul class="list-group">
-					<li class="list-group-item"><a href="index.php?page=imdb_busqueda" title="Buscar urls de películas en una página de imdb">Buscar en IMDB</a></li>
+					<li class="list-group-item"><a href="index.php?page=imdb_busqueda" title="Buscar urls de películas en una página de imdb">Buscar en ImDB</a></li>
 					<li class="list-group-item"><a href="index.php?page=imdb_cast" title="Actualizar datos de los actores desde imdb">Actualizar actores</a></li>
 					<li class="list-group-item"><a href="index.php?page=imdb_filmes" title="actualizar peliculas antiguas con imdb">Actualizar películas</a></li>
 					<li class="list-group-item"><a href="index.php?page=nacionalidades" title="Actualizar nacionalidades actores">Nacionalidades</a></li>

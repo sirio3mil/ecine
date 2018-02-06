@@ -1,13 +1,13 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/imdb.php';
-include_once 'clases/filmesdb.php';
+include_once 'clases/ImDB.php';
+include_once 'clases/FilmesDB.php';
 $mysqli = new FilmesDB();
 $query = "select imdb from filmes where id = '{$_SESSION['id_page']}'";
 $filme = $mysqli->fetch_value($query);
 if(!empty($filme)){
 	$numero = str_pad($filme, 7, "0", STR_PAD_LEFT);
-	$imdb = new IMDB("http://www.imdb.com/title/tt$numero/");
+	$imdb = new ImDB("http://www.imdb.com/title/tt$numero/");
 	$votos = $imdb->dameVotosTotales();
 	$puntaje = (int)(($imdb->damePuntuacionMedia()*$votos)/2);
 	$query = "update filmes 

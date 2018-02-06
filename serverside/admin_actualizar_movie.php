@@ -1,8 +1,8 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../clases/filmesdb.php';
-include_once '../clases/imdb.php';
-include_once '../clases/reloj.php';
+include_once '../clases/FilmesDB.php';
+include_once '../clases/ImDB.php';
+include_once '../clases/Reloj.php';
 include_once '../includes/funciones.inc';
 include_once '../includes/filmes.inc';
 include_once '../includes/imdb.inc';
@@ -11,7 +11,7 @@ try{
     if(!isset($_POST['imdb']) || !filter_var($_POST['imdb'], FILTER_VALIDATE_INT)){
         throw new Exception("No hay filme definido");
     }
-    $mysqli = new filmesDB();
+    $mysqli = new FilmesDB();
 	$query = "SELECT id, original FROM filmes WHERE imdb = '%u'";
 	$query = sprintf($query,
 			$_POST['imdb']
@@ -21,7 +21,7 @@ try{
 	$retorno['id'] = $filme->id;
 	$num_imdb = str_pad($_POST['imdb'], 7, "0", STR_PAD_LEFT);
 	$url_imdb = "http://www.imdb.com/title/tt$num_imdb/";
-	$imdb = new IMDB($url_imdb);
+	$imdb = new ImDB($url_imdb);
 	if(!$imdb->original){
 	    throw new Exception("Formato incorrecto");
 	}

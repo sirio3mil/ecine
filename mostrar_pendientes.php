@@ -224,7 +224,7 @@ while ($row = $result->fetch_object()) {
         echo '<div class="col-md-2"><div class="btn-toolbar" role="toolbar">';
         echo '<div class="btn-group dropdown"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-link"></span></button>';
         echo '<ul class="dropdown-menu">';
-        printf('<li><a id="enlace-imdb" title="ver la página de IMDB" href="http://www.imdb.com/title/tt%s/" target="_blank">IMDb</a></li>', str_pad($row->imdb, 7, "0", STR_PAD_LEFT));
+        printf('<li><a id="enlace-imdb" title="ver la página de ImDB" href="http://www.imdb.com/title/tt%s/" target="_blank">IMDb</a></li>', str_pad($row->imdb, 7, "0", STR_PAD_LEFT));
         printf('<li><a title="buscar en film affinity" href="http://www.filmaffinity.com/es/search.php?stext=%s&stype=all" target="busqueda_affinity">FilmAffinity</a></li>', $original_url_encoded);
         printf('<li><a title="buscar poster en Google" href="https://www.google.es/search?q=%s+%s&safe=off&hl=es&source=lnms&tbm=isch&sa=X" target="busqueda_google">Google</a></li>', $original_url_encoded, $row->anno);
         printf('<li><a target="_blank" href="http://www.youtube.com/results?search_query=%s+trailer" title="buscar trailers en youtube">Youtube</a></li>', $predeterminado_url_encoded);
