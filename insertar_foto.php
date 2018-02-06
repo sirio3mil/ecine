@@ -72,40 +72,46 @@ try{
 	if(!$id){
 		throw new Exception("Destino incorrecto");
 	}
-	$temp = sprintf("%s%stemporal%s%s.jpg", $path, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, uuid_create());
+	$temp = sprintf("%s%stemporal%s%s.%s", $path, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, uuid_create(), $ext);
 	if(!move_uploaded_file($tmp_name, $temp)){
 		throw new Exception("Imposible mover archivo a {$temp}");
 	}
+    switch($mime){
+        case 'image/jpeg':
+            $image = imagecreatefromjpeg($temp);
+            break;
+        case 'image/gif':
+            $image = imagecreatefromgif($temp);
+            break;
+        case 'image/png':
+            $image = imagecreatefrompng($temp);
+            break;
+        default:
+            $image = imagecreatefromstring(file_get_contents($temp));
+    }
+    if(!$image){
+        throw new Exception("Error creando imagen {$mime} {$temp}");
+    }
+    $width = imagesx($image);
+    $height = imagesy($image);
 	switch($_REQUEST["tabla"]){
 		case 'actores':
 			$path .= sprintf("%sphotos%sactores%s", DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR);
 			$filepath = sprintf("%soriginal%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
-			if(!rename($temp, $filepath)){
-				throw new Exception("Error moviendo {$temp} a {$filepath}");
-			}
+            if(file_exists($filepath)){
+                if(!unlink($filepath)){
+                    throw new Exception("Error al borrar la imagen original $filepath");
+                }
+            }
+            imagejpeg($image, $filepath, 100);
+            if(!file_exists($filepath)){
+                throw new Exception("Error al crear {$filepath} {$desired_width}x{$desired_height}");
+            }
 			$query = "update actores set fecha=NOW(),cover='1' where id='$id'";
 			$mysqli->query($query);
 			break;
 		case 'filmes':
 			$path .= sprintf("%sphotos%sfilmes%s", DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR);
-			switch($mime){
-				case 'image/jpeg':
-					$image = imagecreatefromjpeg($temp);
-					break;
-				case 'image/gif':
-					$image = imagecreatefromgif($temp);
-					break;
-				case 'image/png':
-					$image = imagecreatefrompng($temp);
-					break;
-				default:
-					$image = imagecreatefromstring(file_get_contents($temp));
-			}
-			if(!$image){
-				throw new Exception("Error creando imagen {$mime} {$temp}");
-			}
-			$width = imagesx($image);
-			$height = imagesy($image);
 			/* find the "desired height" of this thumbnail, relative to the desired width */
 			$desired_width = 110;
 			$desired_height = ceil($height * $desired_width / $width);
@@ -130,9 +136,10 @@ try{
 					throw new Exception("Error al borrar la imagen original $filepath");
 				}
 			}
-			if(!rename($temp, $filepath)){
-				throw new Exception("Error moviendo {$temp} a {$filepath}");
-			}
+            imagejpeg($image, $filepath, 100);
+            if(!file_exists($filepath)){
+                throw new Exception("Error al crear {$filepath} {$desired_width}x{$desired_height}");
+            }
 			$query = "update filmes set fecha=NOW(),cover='1',bigcover='1' where id='$id'";
 			$mysqli->query($query);
 			break;
@@ -142,24 +149,6 @@ try{
 			if(!$temporada){
 				throw new Exception("Temporada incorrecta");
 			}
-			switch($mime){
-				case 'image/jpeg':
-					$image = imagecreatefromjpeg($temp);
-					break;
-				case 'image/gif':
-					$image = imagecreatefromgif($temp);
-					break;
-				case 'image/png':
-					$image = imagecreatefrompng($temp);
-					break;
-				default:
-					$image = imagecreatefromstring(file_get_contents($temp));
-			}
-			if(!$image){
-				throw new Exception("Error creando imagen {$mime} {$temp}");
-			}
-			$width = imagesx($image);
-			$height = imagesy($image);
 			/* find the "desired height" of this thumbnail, relative to the desired width */
 			$desired_width = 110;
 			$desired_height = ceil($height * $desired_width / $width);
@@ -183,9 +172,10 @@ try{
 					throw new Exception("Error al borrar la imagen original $filepath");
 				}
 			}
-			if(!rename($temp, $filepath)){
-				throw new Exception("Error moviendo {$temp} a {$filepath}");
-			}
+            imagejpeg($image, $filepath, 100);
+            if(!file_exists($filepath)){
+                throw new Exception("Error al crear {$filepath} {$desired_width}x{$desired_height}");
+            }
 			break;
 		default:
 			throw new Exception("No se reciben las opciones correctas");
