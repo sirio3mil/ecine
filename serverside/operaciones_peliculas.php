@@ -1,6 +1,5 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../clases/Database.php';
 $json = [];
 try{
 	$mysqli = new Database();

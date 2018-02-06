@@ -1,8 +1,5 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../clases/FilmesDB.php';
-include_once '../clases/ImDB.php';
-include_once '../clases/Reloj.php';
 include_once '../includes/funciones.inc';
 include_once '../includes/filmes.inc';
 include_once '../includes/imdb.inc';

@@ -1,6 +1,4 @@
 <?php
-include_once 'clases/ImDB.php';
-include_once 'clases/FilmesDB.php';
 include_once 'includes/imdb.inc';
 set_time_limit(0);
 $mysqli  = new FilmesDB();
@@ -51,4 +49,3 @@ $result->close();
 if(!empty($actualizados))
 	echo "Se han actualizado $actualizados peliculas<br/>";
 $mysqli->close();
-?>

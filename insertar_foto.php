@@ -1,7 +1,5 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/FilmesDB.php';
-include_once 'clases/UploadFileSizeCheck.php';
 try{
 	$form_name = 'userfile';
 	if($_SERVER['REQUEST_METHOD'] !== 'POST'){

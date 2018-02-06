@@ -1,7 +1,5 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/ImDB.php';
-include_once 'clases/FilmesDB.php';
 $mysqli = new FilmesDB();
 $query = "select imdb from filmes where id = '{$_SESSION['id_page']}'";
 $filme = $mysqli->fetch_value($query);
@@ -18,4 +16,3 @@ if(!empty($filme)){
 	header("Location: ./index.php?page=filmes&id={$_SESSION['id_page']}");
 }
 $mysqli->close();
-?>

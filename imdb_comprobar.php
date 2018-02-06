@@ -1,5 +1,4 @@
 <?php
-include_once 'clases/ImDB.php';
 include_once 'includes/imdb.inc';
 set_time_limit(0);
 $imdbnr = str_pad($_GET['imdb'], 7, "0", STR_PAD_LEFT);

@@ -1,6 +1,5 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/Database.php';
 $mysqli  = new Database();
 if(!empty($_POST['id']) && is_numeric($_POST['id'])){
 	$query = "update filmes_votos_usuarios set imdb_rated = '%u' where id = '%u'";
@@ -8,4 +7,3 @@ if(!empty($_POST['id']) && is_numeric($_POST['id'])){
 	$mysqli->query($query);
 }
 $mysqli->close();
-?>

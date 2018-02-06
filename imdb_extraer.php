@@ -1,5 +1,4 @@
 <?php
-include_once 'clases/ImDB.php';
 include_once 'includes/imdb.inc';
 set_time_limit(0);
 if(!empty($_POST['url']) && is_array($_POST['url'])){

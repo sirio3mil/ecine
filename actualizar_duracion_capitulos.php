@@ -1,6 +1,5 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/FilmesDB.php';
 $mysqli = new FilmesDB();
 $query = "update filmes 
 	set duracion = '%d' 
@@ -11,4 +10,3 @@ $query = sprintf($query,
 		$_GET['filme']);
 $mysqli->query($query);
 $mysqli->close();
-?>

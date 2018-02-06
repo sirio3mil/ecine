@@ -1,6 +1,5 @@
 <?php
 include_once 'acceso_restringido.php';
-include_once 'clases/ImDB.php';
 include_once 'includes/imdb.inc';
 global $mysqli;
 try{
