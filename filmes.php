@@ -568,7 +568,7 @@ if ($result->num_rows) {
 										<td>
 										<?php
         if ($row['cover']) {
-            printf('<img class="rounded-circle mx-auto d-block" src="photos/actores/original/%u.jpg" />', $row['miembro']);
+            printf('<img class="rounded-circle mx-auto d-block" src="photos/actores/40/%u.jpg" />', $row['miembro']);
         }
         ?>
 										</td>
