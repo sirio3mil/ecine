@@ -24,10 +24,19 @@ $actor = $mysqli->fetch_assoc($query);
 		<div align='center'>
 			<?php
 			if($actor['cover']){
-				echo "<img width='280' height='350' src='photos/actores/original/{$_GET['id']}.jpg' alt='{$actor['nombre']}' />";
-				list($ancho, $altura, $tipo, $atr) = getimagesize("photos/actores/original/{$_GET['id']}.jpg");
-				$tamanno = filesize("photos/actores/original/{$_GET['id']}.jpg");
-				echo "<p>{$ancho}x{$altura} ({$tamanno} bytes)</p>";
+			    $path = "photos/actores/280/{$_GET['id']}.jpg";
+				echo "<img width='280' height='350' src='{$path}' alt='{$actor['nombre']}' />";
+				list($width, $height, $tipo, $atr) = getimagesize($path);
+				$readable_size = FileSizeUtilities::toReadable(filesize($path));
+				echo "<p>{$width}x{$height} ({$readable_size} bytes)</p>";
+				$path = "photos/actores/original/{$_GET['id']}.jpg";
+				list($width, $height, $tipo, $atr) = getimagesize($path);
+				$readable_size = FileSizeUtilities::toReadable(filesize($path));
+				echo "<p>{$width}x{$height} ({$readable_size} bytes)</p>";
+				$path = "photos/actores/40/{$_GET['id']}.jpg";
+				list($width, $height, $tipo, $atr) = getimagesize($path);
+				$readable_size = FileSizeUtilities::toReadable(filesize($path));
+				echo "<p>{$width}x{$height} ({$readable_size} bytes)</p>";
 			}
 			?>
 			<button id='agregar-foto-actor' class='btn btn-success'>Agregar</button>

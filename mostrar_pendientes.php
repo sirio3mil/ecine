@@ -1,5 +1,4 @@
 <?php
-include_once 'includes/archivos.inc';
 global $mysqli;
 $disponibles = (! $_POST || isset($_POST['disponibles'])) ? 1 : 0;
 $pendientes = (! $_POST || isset($_POST['pendientes'])) ? 1 : 0;
@@ -254,7 +253,7 @@ while ($row = $result->fetch_object()) {
         printf('<p class="text-justify">%s</p>', $row->plot_es);
         if ($disponibles) {
             printf('<p>%s</p>', dirname($row->complete_name));
-            printf('<p>%s %s %u / %u (%s) %s %s %s</p>', human_filesize($row->size), $row->duration, $row->width, $row->height, $row->display_aspect_ratio, $row->frame_rate, $row->codec, $row->format);
+            printf('<p>%s %s %u / %u (%s) %s %s %s</p>', FileSizeUtilities::toReadable($row->size), $row->duration, $row->width, $row->height, $row->display_aspect_ratio, $row->frame_rate, $row->codec, $row->format);
         }
         echo '</div></div><hr />';
     }

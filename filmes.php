@@ -2,7 +2,6 @@
 include_once 'includes/filmes.inc';
 include_once 'includes/imdb.inc';
 include_once 'includes/admin.inc';
-include_once 'includes/archivos.inc';
 global $mysqli;
 $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'Europe/Madrid', IntlDateFormatter::GREGORIAN, "EEEE',' d 'de' MMMM 'de' y, H:mm");
 $id_filme = $_GET['id'];
@@ -389,7 +388,7 @@ if (! $filme['capitulo']) {
     $result = $mysqli->query($query);
     if ($result->num_rows) {
         while ($row = $result->fetch_object()) {
-            printf("<tr class='%s'><td><a title='%s'>%s</a></td><td>%s</td><td>%s</td><td>%u / %u (%s)<br />%s<br />%s<br />%s</td><td>%s</td></tr>", $row->existente ? "" : "danger", $row->complete_name, str_replace(".", " ", $row->file_name), human_filesize($row->size), $row->duration, $row->width, $row->height, $row->display_aspect_ratio, $row->frame_rate, $row->codec, $row->format, (new DateTime($row->agregado))->format("d/m/Y"));
+            printf("<tr class='%s'><td><a title='%s'>%s</a></td><td>%s</td><td>%s</td><td>%u / %u (%s)<br />%s<br />%s<br />%s</td><td>%s</td></tr>", $row->existente ? "" : "danger", $row->complete_name, str_replace(".", " ", $row->file_name), FileSizeUtilities::toReadable($row->size), $row->duration, $row->width, $row->height, $row->display_aspect_ratio, $row->frame_rate, $row->codec, $row->format, (new DateTime($row->agregado))->format("d/m/Y"));
         }
     }
     $result->close();
