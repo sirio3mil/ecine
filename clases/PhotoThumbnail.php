@@ -8,7 +8,7 @@
 
 class PhotoThumbnail
 {
-	public static function store(string $file_path, resource $image)
+	public static function store(string $file_path, $image)
 	{
 		if(file_exists($file_path)){
 			if(!unlink($file_path)){
@@ -21,7 +21,7 @@ class PhotoThumbnail
 		}
 	}
 
-	public static function create(string $file_path, resource $image, int $desired_width)
+	public static function create(string $file_path, $image, int $desired_width)
 	{
 		$width = imagesx($image);
 		$height = imagesy($image);
