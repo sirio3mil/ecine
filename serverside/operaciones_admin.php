@@ -1,6 +1,5 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../includes/funciones.inc';
 include_once '../includes/filmes.inc';
 $mysqli = new FilmesDB();
 switch($_REQUEST['action']){

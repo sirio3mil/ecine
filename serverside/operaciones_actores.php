@@ -1,6 +1,5 @@
 <?php
 include_once '../acceso_restringido.php';
-include_once '../includes/funciones.inc';
 include_once '../includes/filmes.inc';
 $mysqli  = new Database();
 $action = (!empty($_REQUEST['action']))?$_REQUEST['action']:null;
