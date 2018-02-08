@@ -25,8 +25,8 @@ $actor = $mysqli->fetch_assoc($query);
 			<?php
 			if($actor['cover']){
 			    $path = "photos/actores/280/{$_GET['id']}.jpg";
-				echo "<img width='280' height='350' src='{$path}' alt='{$actor['nombre']}' />";
 				list($width, $height, $tipo, $atr) = getimagesize($path);
+				echo "<img width='{$width}' height='{$height}' src='{$path}' alt='{$actor['nombre']}' />";
 				$readable_size = FileSizeUtilities::toReadable(filesize($path));
 				echo "<p>{$width}x{$height} ({$readable_size} bytes)</p>";
 				$path = "photos/actores/original/{$_GET['id']}.jpg";
