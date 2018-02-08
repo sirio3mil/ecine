@@ -106,6 +106,8 @@ try{
 			$path .= sprintf("%sphotos%sfilmes%s", DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR);
 			$filepath = sprintf("%s110%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
 			PhotoThumbnail::create($filepath, $image, 110);
+			$filepath = sprintf("%s40%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
+			PhotoThumbnail::create($filepath, $image, 40);
 			$filepath = sprintf("%soriginal%s%u.jpg", $path, DIRECTORY_SEPARATOR, $id);
 			PhotoThumbnail::store($filepath, $image);
 			$query = "update filmes set fecha=NOW(),cover='1',bigcover='1' where id='$id'";
