@@ -7,7 +7,7 @@
  */
 include_once '../acceso_restringido.php';
 $mysqli = new Database();
-$query = "select id from filmes where cover = 1 and id > 52390";
+$query = "select id from filmes where cover = 1 and id > 52389";
 $result = $mysqli->query($query);
 if ($result) {
 	while ($row = $result->fetch_object()){
